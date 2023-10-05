@@ -3,7 +3,7 @@
 */
 function throttle(fn: AnyFn, delay: number) {
   // @ts-ignore
-  let timer: null | NodeJS.Timeout = null;
+  let timer: null | ReturnType<typeof setTimeout> = null;
   // 这个返回的函数被绑定出去，xxx.yy调用的时候能拿到this
   return function (...args: unknown[]) {
     // @ts-ignore
@@ -33,4 +33,7 @@ ob.fn(2); // 2 和 3 不会执行
 ob.fn(3);
 setTimeout(() => {
   ob.fn(4);
+}, 500);
+setTimeout(() => {
+  ob.fn(5);
 }, 1000);
