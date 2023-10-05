@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 实现三栏布局</title>
+    <style>
+      .left,
+      .right {
+        width: 200px;
+        height: 100px;
+        background: red;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+      .center {
+        margin: 0 200px;
+        height: 100px;
+        border-radius: 20px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent clearfix">
+      <div class="left"></div>
+      <div class="right"></div>
+      <!-- 注意center必须写在后面，不然right会被挤到第二行 //TODO:为什么？ -->
+      <div class="center"></div>
+    </div>
+  </body>
+</html>
