@@ -1,7 +1,7 @@
 /* 
   节流：从第一次触发之后一段时间不再触发，也就是delay时间内只能执行一次
 */
-function throttle(fn: AnyFn, delay: number) {
+export function throttle(fn: AnyFn, delay: number) {
   // @ts-ignore
   let timer: null | ReturnType<typeof setTimeout> = null;
   // 这个返回的函数被绑定出去，xxx.yy调用的时候能拿到this
@@ -29,7 +29,7 @@ const ob = {
 
 // 触发
 ob.fn(1);
-ob.fn(2); // 2 和 3 不会执行
+ob.fn(2); // 2 3 4 不会执行
 ob.fn(3);
 setTimeout(() => {
   ob.fn(4);
