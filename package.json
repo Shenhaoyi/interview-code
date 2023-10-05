@@ -1,0 +1,17 @@
+{
+  "name": "interview-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "tsc --watch",
+    "vitest": "vitest --run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^0.34.5"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  // 需要编译的文件
+  "include": ["./**/*.ts", "./*.d.ts"], // 哪些ts文件需要编译
+  "compilerOptions": {
+    // "target": "ES6", // 编译成的js版本
+    // "module": "ES6", // 编译后的模块化标准，commonjs AMD等
+    "noEmit": true, // 不生成编译后的文件
+    "strict": true // 所有严格检查的总开关
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
