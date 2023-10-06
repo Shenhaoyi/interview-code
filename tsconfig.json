@@ -6,7 +6,8 @@
     // "module": "ES6", // 编译后的模块化标准，commonjs AMD等
     // "noEmit": true, // 不生成编译后的文件
     "outDir": "./dist",
-    "strict": true // 所有严格检查的总开关
+    "strict": true, // 所有严格检查的总开关
+    "types": ["vitest/globals"]
   },
   "ts-node": {
     "esm": true
