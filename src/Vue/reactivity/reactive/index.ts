@@ -34,7 +34,7 @@ export function trigger(target: Object, key: string | Symbol) {
 }
 
 // 使用Proxy进行代理，自动进行依赖追踪和变更通知
-export function reactive<T extends Object>(target: T, effect: AnyFn) {
+export default function reactive<T extends Object>(target: T, effect: AnyFn) {
   const handler: ProxyHandler<Object> = {
     get(target, key, receiver) {
       const result = Reflect.get(target, key, receiver);

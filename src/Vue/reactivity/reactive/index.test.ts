@@ -1,4 +1,4 @@
-import { track, trigger, reactive } from '.';
+import reactive, { track, trigger } from '.';
 
 test('track and trigger', () => {
   const product = {
