@@ -18,6 +18,6 @@ test('TaskPro', async () => {
   await tp.run();
   await tp.run(); // 这里不运行的原因是任务列表已经清空了
   await tp.run();
-  console.log(tp);
+  // console.log(tp);
   expect(tp.context.res).toEqual([1, 3, 4, 2]);
 });
