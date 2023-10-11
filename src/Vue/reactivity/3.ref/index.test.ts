@@ -1,7 +1,7 @@
 import ref from '.';
 import reactive, { effect } from '../2.activeEffect';
 
-test('track, trigger and reactive', () => {
+test('ref', () => {
   const productProxy = reactive({
     unitPrice: 23,
     weight: 10,
