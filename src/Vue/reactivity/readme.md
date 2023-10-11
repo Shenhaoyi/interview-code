@@ -5,4 +5,5 @@
 
 # 代码说明
 1. reactive：实现track、trigger和reactive
-2. activeEffect&ref：实现activeEffect，调整了track的依赖收集过程；实现ref
+2. activeEffect：实现activeEffect，调整了track的依赖收集过程
+3. ref：实现ref
