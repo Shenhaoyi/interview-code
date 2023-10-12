@@ -4,7 +4,9 @@ const Stack = {
   props: ['size'], // props必须定义才能拿到
   render() {
     const defaultSlots = this.$slots.default ? this.$slots.default() : []; // 保证是个数组
-    return h('div', { class: 'stack' }, [
+    return h(
+      'div',
+      { class: 'stack' },
       defaultSlots.map((child) => {
         return h(
           'div',
@@ -16,7 +18,7 @@ const Stack = {
           child,
         );
       }),
-    ]);
+    );
   },
 };
 createApp({
