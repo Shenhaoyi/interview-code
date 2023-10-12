@@ -37,3 +37,5 @@ setTimeout(() => {
 setTimeout(() => {
   ob.fn(5);
 }, 1000);
+
+// expect: 1 5
