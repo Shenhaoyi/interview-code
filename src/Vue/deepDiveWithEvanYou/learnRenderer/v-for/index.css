@@ -1,0 +1,7 @@
+.v-for {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.v-for .item {
+}
