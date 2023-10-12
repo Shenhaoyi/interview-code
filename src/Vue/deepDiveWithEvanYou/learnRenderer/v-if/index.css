@@ -1,0 +1,7 @@
+.v-if {
+  display: flex;
+}
+.v-if .is-ok,
+.not-ok {
+  margin-left: 20px;
+}
