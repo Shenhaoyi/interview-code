@@ -1,4 +1,4 @@
-const { createApp, h, ref } = Vue;
+const { createApp, h } = Vue;
 
 const Stack = {
   props: ['size'], // props必须定义才能拿到
