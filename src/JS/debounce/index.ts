@@ -11,7 +11,7 @@ export function debounce(fn: AnyFn, delay: number) {
     timer = setTimeout(() => {
       // @ts-ignore
       fn.apply(this, args);
-      timer = null;
+      timer = null; // 记得置为null
     }, delay);
   };
 }
@@ -36,3 +36,5 @@ setTimeout(() => {
 setTimeout(() => {
   ob.fn(5);
 }, 1000);
+
+// expect: 5
