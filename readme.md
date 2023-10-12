@@ -7,4 +7,11 @@
 ## 2 CSS
 1. 三栏布局
 ## 3 Vue
-1. reactivity库核心
+1. reactivity模块核心
+   1. reactive
+   2. ref
+   3. computed
+2. render函数的写法
+   1. v-if
+   2. v-for
+   3. slot
