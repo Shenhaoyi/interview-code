@@ -1,1 +1,1 @@
-declare type AnyFn = (...args: any[]) => any;
+declare type AnyFn = (...args: any[]) => any | Promise<any>;

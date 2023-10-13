@@ -13,26 +13,27 @@ export class TaskPro {
   }
   async next() {
     this.currentIndex++;
-    if (this.currentIndex < this.taskList.length) {
-      await this.runOneTask();
-    } else {
-      // 重置
-      this.taskList = [];
-      this.isRunning = false;
-      this.currentIndex = 0;
-    }
+    await this.runOneTask();
+  }
+  reset() {
+    this.taskList = [];
+    this.isRunning = false;
+    this.currentIndex = 0;
   }
   private async runOneTask() {
-    const cb = this.taskList[this.currentIndex];
-    const startIndex = this.currentIndex;
-    await cb(this.context, this.next.bind(this));
-    if (startIndex === this.currentIndex) {
-      this.next();
+    if (this.currentIndex > this.taskList.length - 1) return; // 边界条件
+    const task = this.taskList[this.currentIndex];
+    const tempIndex = this.currentIndex;
+    await task(this.context, this.next.bind(this)); // this指向问题！！
+    if (this.currentIndex === tempIndex) {
+      await this.next();
     }
   }
   async run() {
-    if (this.isRunning || this.taskList.length === 0) return;
-    this.isRunning = true;
+    if (this.isRunning || this.taskList.length === 0) return; // 在run或者无task可run
+    this.isRunning = true; //
+    this.context = {};
     await this.runOneTask();
+    this.reset();
   }
 }
