@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "tsc --watch",
-    "vitest": "vitest --run"
+    "tsc": "tsc --watch",
+    "test": "vitest --run"
   },
   "keywords": [],
   "author": "",
