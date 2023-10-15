@@ -1,10 +1,14 @@
 {
   // 需要编译的文件
   "include": ["./**/*.ts", "./**/*.d.ts"], // 哪些ts文件需要编译
+  "exclude": ["./vite.config.ts", "node_modules"],
   "compilerOptions": {
-    // "target": "ES6", // 编译成的js版本
-    // "module": "ES6", // 编译后的模块化标准，commonjs AMD等
+    "target": "ESNext", // 编译成的js版本
+    "module": "ESNext", // 编译后的模块化标准，commonjs AMD等
     // "noEmit": true, // 不生成编译后的文件
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "skipDefaultLibCheck": true,
     "outDir": "./dist",
     "strict": true, // 所有严格检查的总开关
     "types": ["vitest/globals"]
