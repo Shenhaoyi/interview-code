@@ -8,8 +8,8 @@ export function patch(n1, n2) {
   // 如果两个 node 是相同类型的
   if (n1.tag === n2.tag) {
     // 拿到旧的节点的 DOM
-    const el = n1.$el;
-    n2.$el = el; // 把真实DOM挂到n2上
+    const el = n1.el;
+    n2.el = el; // 把真实DOM挂到n2上
 
     // 1、props
     const oldProps = n1.props || {};

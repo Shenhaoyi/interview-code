@@ -4,7 +4,7 @@ export function mount(VNode, container) {
 
   // 1、根据tag创建真实DOM
   const el = document.createElement(tag);
-  VNode.$el = el; // 根DOM挂到VNode上，方便组件实例访问
+  VNode.el = el; // 根DOM挂到VNode上，方便组件实例访问
 
   // 2、设置 attribute
   if (props) {
