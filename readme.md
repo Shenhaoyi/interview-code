@@ -21,3 +21,9 @@
    3. patch
    4. mountApp
    5. 结合 reactivity，实现一个简易的 Vue 应用
+4. 逻辑复用的4种方式
+   1. Mixin
+   2. High order component
+   3. Scoped slot
+   4. Composition Api
+5. 一个 Composition Api 例子：useFetch
