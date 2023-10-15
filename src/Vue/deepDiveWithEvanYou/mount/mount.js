@@ -10,7 +10,12 @@ export function mount(VNode, container) {
   if (props) {
     for (const key in props) {
       const value = props[key];
-      el.setAttribute(key, value);
+      // 事件绑定
+      if (key.startsWith('on')) {
+        el.addEventListener(key.slice(2).toLowerCase(), value);
+      } else {
+        el.setAttribute(key, value);
+      }
     }
   }
 
