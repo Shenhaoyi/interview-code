@@ -21,7 +21,6 @@ const MouseMixin = {
   },
 };
 createApp({
-  // 模板
   mixins: [MouseMixin],
   template: '{{ x }} {{ y }}',
 }).mount('#app');

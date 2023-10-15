@@ -32,7 +32,6 @@ function withMouse(inner) {
 }
 
 const App = withMouse({
-  // 模板
   props: ['x', 'y'],
   template: '{{ x }} {{ y }}',
 });
