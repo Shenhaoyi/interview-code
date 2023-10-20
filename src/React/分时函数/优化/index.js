@@ -1,11 +1,19 @@
 const btn = document.getElementById('btn');
-const container = document.getElementById('container');
-const array = Array.from({ length: 10000 }, (_, i) => i);
 btn.addEventListener('click', () => {
-  performChunk(array);
+  const container = document.getElementById('container');
+  const handler = (item, index) => {
+    const el = document.createElement('div');
+    el.innerHTML = item;
+    container.appendChild(el);
+  };
+  const array = Array.from({ length: 10000 }, (_, i) => i);
+  performChunk(handler, array);
 });
 
-function performChunk(dataList) {
+function performChunk(
+  handler, // 任务单元执行
+  dataList,
+) {
   if (dataList.length === 0) return;
   let i = 0;
   const { length } = dataList;
@@ -14,10 +22,8 @@ function performChunk(dataList) {
     if (i >= length) return;
     requestIdleCallback((IdleDeadline) => {
       while (IdleDeadline.timeRemaining() > 0 && i < length) {
-        const el = document.createElement('div');
-        el.innerHTML = dataList[i];
+        handler(dataList[i], i);
         i++;
-        container.appendChild(el);
       }
       _run(); // 下一次有空闲时间的时候继续执行
     });
