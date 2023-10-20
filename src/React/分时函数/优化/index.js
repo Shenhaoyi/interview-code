@@ -13,7 +13,7 @@ function performChunk(dataList) {
   function _run() {
     if (i >= length) return;
     requestIdleCallback((IdleDeadline) => {
-      while (IdleDeadline.timeRemaining() > 0) {
+      while (IdleDeadline.timeRemaining() > 0 && i < length) {
         const el = document.createElement('div');
         el.innerHTML = dataList[i];
         i++;
