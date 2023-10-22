@@ -6,6 +6,7 @@
 4. 执行任务的洋葱模型
 ## 2 CSS
 1. 三栏布局
+2. 轮播图
 ## 3 Vue
 1. reactivity模块核心
    1. reactive
@@ -27,3 +28,6 @@
    3. Scoped slot
    4. Composition Api
 5. 一个 Composition Api 例子：useFetch
+## 4 React
+1. fiber原理
+   1. requestIdleCallback 实现分时函数
