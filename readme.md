@@ -7,6 +7,7 @@
 ## 2 CSS
 1. 三栏布局
 2. 轮播图
+3. 居中
 ## 3 Vue
 1. reactivity模块核心
    1. reactive
