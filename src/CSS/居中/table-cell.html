@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        border: 1px solid red;
+        height: 100px;
+        width: 100px;
+
+        /* 模仿<td> */
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle; /* 只能作用于行内元素、行内块元素和表格单元格元素的垂直对齐 */
+      }
+
+      .child {
+        border: 1px solid blue;
+        width: 50px;
+
+        /* 内容为行内块 */
+        display: inline-block;
+
+        /* 文字居中 */
+        line-height: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="child">hello</div>
+    </div>
+  </body>
+</html>
