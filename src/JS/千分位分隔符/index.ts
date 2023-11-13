@@ -1,0 +1,33 @@
+function addThousandsSeparator2Integer(integer: string) {
+  // 1、整数部分 reverse 再放，因为要判断 %3 ，如果是正序的话，不知道要除以几！
+  // const intArray = integer.split('');
+  // intArray.reverse();
+  // const intRes = [];
+  // for (let i = 0; i < intArray.length; i++) {
+  //   if (i % 3 === 0 && i !== 0) { // 每 3 位放分隔符
+  //     //注意排除0的情况
+  //     intRes.push(',');
+  //   }
+  //   intRes.push(intArray[i]);
+  // }
+  // intRes.reverse();
+  // return intRes.join('');
+  // 1、正则实现：总结尾开始，每 3 个数字为一组进行匹配
+  return integer.replace(/(?=(\d{3})+$)/g, ','); // 参考https://v.douyin.com/iRAdpkeF/
+}
+
+export function addThousandsSeparator(num: number) {
+  let result = '';
+  // 负号处理
+  if (num < 0) {
+    result += '-';
+    num = -num;
+  }
+  const str = num.toString();
+  const [integerPart, decimalPart] = str.split('.');
+  result += addThousandsSeparator2Integer(integerPart);
+  if (decimalPart) {
+    result += '.' + decimalPart;
+  }
+  return result;
+}
