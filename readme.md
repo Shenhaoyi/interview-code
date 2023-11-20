@@ -7,6 +7,7 @@
 5. 千分位分隔符
 6. 数组扁平化
 7. instanceof
+8. deepClone
 ## 2 CSS
 1. 三栏布局
 2. 轮播图
