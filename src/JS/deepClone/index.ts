@@ -1,12 +1,13 @@
 const cache = new WeakMap();
 
 /* 
-  深拷贝，实现要点
+  深拷贝，实现要点:
   1、非对象类型直接返回（函数也是）
   2、对象类型判断，按类型进行处理（其他类型可以再拓展，这里只判断Array）
   3、处理循环引用-缓存
   4、把原型也继承下来
-  5、递归处理属性
+  5、自有属性判断
+  6、递归处理属性
   参考：https://v.douyin.com/iR9sjYYv/
 */
 export function deepClone(value: any) {
