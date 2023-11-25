@@ -33,7 +33,7 @@ export function flat2(nestedArray: NestedArray) {
 export function flat3(nestedArray: NestedArray) {
   const str = JSON.stringify(nestedArray); // '[1,[2,3,[4]]]'; 只需要将多余的中括号去除即可
   return str
-    .replace(/(\[|\])/g, '') // 匹配并去除左右中括号
+    .replace(/\[|\]/g, '') // 匹配并去除左右中括号
     .split(',')
     .map((i) => parseInt(i));
 }
