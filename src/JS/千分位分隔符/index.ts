@@ -12,7 +12,7 @@ function addThousandsSeparator2Integer(integer: string) {
   // }
   // intRes.reverse();
   // return intRes.join('');
-  // 1、正则实现：总结尾开始，每 3 个数字为一组进行匹配
+  // 1、正则实现：总结尾开始，每 3 个数字为一组进行匹配（把$包含在括号内，记不住）
   return integer.replace(/(?=(\d{3})+$)/g, ','); // 参考https://v.douyin.com/iRAdpkeF/
 }
 
@@ -23,8 +23,7 @@ export function addThousandsSeparator(num: number) {
     result += '-';
     num = -num;
   }
-  const str = num.toString();
-  const [integerPart, decimalPart] = str.split('.');
+  const [integerPart, decimalPart] = num.toString().split('.');
   result += addThousandsSeparator2Integer(integerPart);
   if (decimalPart) {
     result += '.' + decimalPart;
