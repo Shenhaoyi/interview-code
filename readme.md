@@ -8,6 +8,10 @@
 6. 数组扁平化
 7. instanceof
 8. deepClone
+9. this相关
+   1. call
+   2. apply
+   3. bind
 ## 2 CSS
 1. 三栏布局
 2. 轮播图
