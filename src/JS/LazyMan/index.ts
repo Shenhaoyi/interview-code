@@ -1,6 +1,6 @@
 /*
   说明：https://juejin.cn/post/6865704100353277965
-  code: 
+  code:
     new LazyMan('Tony').eat('lunch').eat('dinner').sleep(10).sleepFirst(5).eat('junk food');
   expact:
     Hi, I am Tony
@@ -44,7 +44,10 @@ class LazyMan {
   sleep(time: number) {
     this.stack.push(() => {
       return new Promise((resolve, reject) => {
-        setTimeout(resolve, time * 1000);
+        setTimeout(() => {
+          console.log(`等待了${time}秒`);
+          resolve();
+        }, time * 1000);
       });
     });
     return this.next();
@@ -52,7 +55,10 @@ class LazyMan {
   sleepFirst(time: number) {
     this.stack.unshift(() => {
       return new Promise((resolve, reject) => {
-        setTimeout(resolve, time * 1000);
+        setTimeout(() => {
+          console.log(`等待了${time}秒`);
+          resolve();
+        }, time * 1000);
       });
     });
     return this.next();
