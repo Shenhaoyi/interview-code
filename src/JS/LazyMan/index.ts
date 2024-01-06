@@ -32,6 +32,7 @@ class LazyMan {
         const callback = this.stack[i];
         await callback();
       }
+      this.timer = null;
     }, 0);
     return this;
   }
@@ -43,7 +44,7 @@ class LazyMan {
   }
   sleep(time: number) {
     this.stack.push(() => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           console.log(`等待了${time}秒`);
           resolve();
@@ -54,7 +55,7 @@ class LazyMan {
   }
   sleepFirst(time: number) {
     this.stack.unshift(() => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           console.log(`等待了${time}秒`);
           resolve();
