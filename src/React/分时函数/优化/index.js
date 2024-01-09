@@ -21,7 +21,7 @@ btn.addEventListener('click', () => {
 function performChunk(
   handler, // 任务单元执行
   dataList,
-  scheduler, // 何时开启下一块的执行，每块执行多少，由scheduler进行调度
+  scheduler, // 何时开启下一块的执行，每块执行多少，由scheduler进行调度(与requestIdleCallback的使用方式是一样的)
 ) {
   if (dataList.length === 0) return;
   let i = 0;
