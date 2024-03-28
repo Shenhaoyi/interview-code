@@ -29,7 +29,7 @@
    1. v-if
    2. v-for
    3. slot
-3. mini-vue
+3. [mini-vue](./src/Vue/deepDiveWithEvanYou/mini-vue/)
    1. h
    2. mount
    3. patch
