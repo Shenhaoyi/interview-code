@@ -4,17 +4,20 @@ const length = 3;
 // 路由表
 const initRoutes = () => {
   const result = {};
-  const doms = Array.from({ length }, (ele, index) => {
+  const routeList = Array.from({ length }, (ele, index) => {
+    const route = {};
     const div = document.createElement('div');
-    const route = `router-${index}`;
-    div.id = route;
+    const hash = `router-${index}`;
+    div.id = hash;
     div.textContent = String(index);
-    return div;
+    route.dom = div;
+    route.hash = hash;
+    return route;
   });
-  doms.forEach((div) => {
-    result[div.id] = div;
+  routeList.forEach((route) => {
+    result[route.hash] = route;
   });
-  result.defaultHash = doms[0].id; // 默认路由
+  result.defaultHash = routeList[0].hash; // 默认路由
   return result;
 };
 const routes = initRoutes();
@@ -51,17 +54,17 @@ const handleHashChange = () => {
   const hash = window.location.hash.substring(1);
   if (prevHash) {
     /* 移除旧的 */
-    const prevDiv = routes[prevHash];
-    if (prevDiv) {
-      app.removeChild(prevDiv);
+    const prevRoute = routes[prevHash];
+    if (prevRoute) {
+      app.removeChild(prevRoute.dom);
     } else {
       // 说明上一个路由没匹配上
       app.removeChild(cannotFound);
     }
   }
-  const div = routes[hash];
-  if (div) {
-    app.appendChild(div);
+  const route = routes[hash];
+  if (route) {
+    app.appendChild(route.dom);
   } else {
     app.appendChild(cannotFound);
   }
