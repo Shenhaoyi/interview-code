@@ -26,7 +26,7 @@ const cannotFound = (() => {
   div.textContent = '404';
   return div;
 })();
-// 生成 hash 链接
+// 生成 path 链接
 const mountRouterLinks = () => {
   const handleClick = (path) => {
     return (e) => {
