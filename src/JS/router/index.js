@@ -1,14 +1,23 @@
 let prevHash = '';
 const app = document.querySelector('#app');
 const length = 3;
-// dom 列表
-const routes = Array.from({ length }, (ele, index) => {
-  const div = document.createElement('div');
-  const route = `router-${index}`;
-  div.id = route;
-  div.textContent = String(index);
-  return div;
-});
+// 路由表
+const initRoutes = () => {
+  const result = {};
+  const doms = Array.from({ length }, (ele, index) => {
+    const div = document.createElement('div');
+    const route = `router-${index}`;
+    div.id = route;
+    div.textContent = String(index);
+    return div;
+  });
+  doms.forEach((div) => {
+    result[div.id] = div;
+  });
+  result.defaultHash = doms[0].id; // 默认路由
+  return result;
+};
+const routes = initRoutes();
 const cannotFound = (() => {
   const div = document.createElement('div');
   div.textContent = '404';
@@ -31,7 +40,7 @@ mountRouterLinks();
 
 // hash 为空时，设置默认路由
 const handleDefaultRoute = () => {
-  if (window.location.hash === '') window.location.hash = `#${routes[0].id}`;
+  if (window.location.hash === '') window.location.hash = routes.defaultHash;
 };
 
 const handleHashChange = () => {
@@ -42,7 +51,7 @@ const handleHashChange = () => {
   const hash = window.location.hash.substring(1);
   if (prevHash) {
     /* 移除旧的 */
-    const prevDiv = routes.find((route) => route.id === prevHash);
+    const prevDiv = routes[prevHash];
     if (prevDiv) {
       app.removeChild(prevDiv);
     } else {
@@ -50,7 +59,7 @@ const handleHashChange = () => {
       app.removeChild(cannotFound);
     }
   }
-  const div = routes.find((route) => route.id === hash);
+  const div = routes[hash];
   if (div) {
     app.appendChild(div);
   } else {
