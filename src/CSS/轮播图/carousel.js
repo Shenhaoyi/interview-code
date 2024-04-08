@@ -1,7 +1,7 @@
 const ClassMap = {
-  CAROUSEL_INNER: 'carousel-inner',
-  INTERACT: 'interact',
-  INDICATOR: 'indicator',
+  CAROUSEL_INNER: 'carousel-inner', // 图片容器
+  INTERACT: 'interact', // 底部交互区
+  INDICATOR: 'indicator', // 底部交互区的按钮
   GO_LEFT: 'go-left',
   GO_RIGHT: 'go-right',
 };
