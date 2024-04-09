@@ -1,0 +1,36 @@
+.wrapper {
+  background: grey;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.inner {
+  height: 100px;
+  width: 100px;
+  background: green;
+  border: 3px solid red;
+}
+
+.wrapper1 {
+  height: 200px;
+}
+.inner1 {
+  margin: auto;
+}
+
+.inner2 {
+  margin-left: auto;
+}
+
+.inner3 {
+  margin-left: auto;
+}
+.inner4 {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapper5 {
+  gap: 20px;
+}
+.inner5 {
+}
