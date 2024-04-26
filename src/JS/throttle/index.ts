@@ -1,17 +1,15 @@
-/* 
+/*
   节流：从第一次触发之后一段时间不再触发，也就是delay时间内只能执行一次
 */
-export function throttle(fn: AnyFn, delay: number) {
-  // @ts-ignore
-  let timer: null | ReturnType<typeof setTimeout> = null;
+export function throttle(fn: Function, delay: number) {
+  let timeoutID: ReturnType<typeof setTimeout> | undefined;
   // 这个返回的函数被绑定出去，xxx.yy调用的时候能拿到this
   return function (...args: unknown[]) {
-    // @ts-ignore
-    const _this = this;
-    if (!timer) {
-      timer = setTimeout(() => {
-        fn.apply(_this, args); // 这里用箭头函数，直接写this也可以
-        timer = null;
+    if (!timeoutID) {
+      timeoutID = setTimeout(() => {
+        // @ts-ignore
+        fn.apply(this, args); // 这里用箭头函数，直接写this也可以
+        timeoutID = undefined;
       }, delay);
     }
   };
