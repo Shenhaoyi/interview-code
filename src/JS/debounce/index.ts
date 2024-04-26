@@ -3,13 +3,12 @@
   参考：[文心一言](https://yiyan.baidu.com/share/qzd4CtMFE7)
 */
 export function debounce(fn: Function, delay: number) {
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  let timer: ReturnType<typeof setTimeout>;
   return function (...args: unknown[]) {
     clearTimeout(timer);
     timer = setTimeout(() => {
       // @ts-ignore
       fn.apply(this, args);
-      timer = undefined; // 记得置为 undefined
     }, delay);
   };
 }
