@@ -1,17 +1,15 @@
-/* 
+/*
   防抖：最后一次触发之后一段时间后执行，类似移动时间窗口
   参考：[文心一言](https://yiyan.baidu.com/share/qzd4CtMFE7)
 */
-export function debounce(fn: AnyFn, delay: number) {
-  let timer: null | ReturnType<typeof setTimeout> = null;
+export function debounce(fn: Function, delay: number) {
+  let timer: ReturnType<typeof setTimeout> | undefined;
   return function (...args: unknown[]) {
-    if (timer) {
-      clearTimeout(timer);
-    }
+    clearTimeout(timer);
     timer = setTimeout(() => {
       // @ts-ignore
       fn.apply(this, args);
-      timer = null; // 记得置为null
+      timer = undefined; // 记得置为 undefined
     }, delay);
   };
 }
