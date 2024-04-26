@@ -6,7 +6,7 @@ const cache = new WeakMap();
   2、对象类型判断，按类型进行处理（其他类型可以再拓展，这里只判断Array）
   3、处理循环引用-缓存
   4、把原型也继承下来
-  5、自有属性判断
+  5、遍历自有属性
   6、递归处理属性
   参考：https://v.douyin.com/iR9sjYYv/
 */
@@ -31,10 +31,8 @@ export function deepClone(value: any) {
   */
   cache.set(value, result);
   // 依次 copy 对象属性
-  for (let key in value) {
-    if (value.hasOwnProperty(key)) {
-      result[key] = deepClone(value[key]);
-    }
+  for (let key of Object.keys(value)) {
+    result[key] = deepClone(value[key]);
   }
   return result;
 }
