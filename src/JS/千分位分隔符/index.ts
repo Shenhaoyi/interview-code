@@ -16,7 +16,8 @@ function addThousandsSeparator2Integer(integer: string) {
     2、正则实现：从末尾开始，每 3 个数字为一组进行匹配（把$包含在括号内，记不住）
       这里的 g 的作用就是让+多次取值，这样，只要是 3 的倍数位都能被匹配到
   */
-  return integer.replace(/(?=(\d{3})+$)/g, ','); // 参考https://v.douyin.com/iRAdpkeF/
+  const result = integer.replace(/(?=(\d{3})+$)/g, ','); // 参考https://v.douyin.com/iRAdpkeF/
+  return result[0] === ',' ? result.slice(1) : result; // 去除可能出现的第一个逗号
 }
 
 export function addThousandsSeparator(num: number) {
