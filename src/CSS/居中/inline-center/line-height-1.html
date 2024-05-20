@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        & > div.container {
+          padding: 20px;
+          & > div {
+            border: 1px solid green;
+            text-align: center;
+            /* line-height: 50px; 设置在这也行 */
+            & > span {
+              border: 1px solid red;
+              margin: 20px;
+              padding: 10px 20px;
+              font-size: 20px;
+              line-height: 50px;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <span>span元素</span>
+        <span>span元素</span>
+      </div>
+    </div>
+  </body>
+</html>
