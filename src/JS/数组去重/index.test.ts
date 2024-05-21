@@ -10,6 +10,8 @@ test('isPrimitive', () => {
 
 test('isSame', () => {
   expect(isSame(null, null)).toBe(true);
+  expect(isSame(NaN, NaN)).toBe(true);
+  expect(isSame(+0, -0)).toBe(true);
   expect(isSame({ key: 'value' }, { key: 'value' })).toBe(true);
   expect(isSame({ key: 'value' }, { key: 'otherValue' })).toBe(false);
   expect(isSame({ key: { nestedKey: 'value' } }, { key: { nestedKey: 'value' } })).toBe(true);

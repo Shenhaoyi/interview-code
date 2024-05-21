@@ -3,7 +3,7 @@ export function isPrimitive(value: unknown) {
 }
 export function isSame(value1: unknown, value2: unknown): boolean {
   if (isPrimitive(value1) && isPrimitive(value2)) {
-    return value1 === value2 && Object.is(value1, value2);
+    return value1 === value2 || Object.is(value1, value2);
   } else if (isPrimitive(value1) || isPrimitive(value2)) {
     return false;
   } else {
