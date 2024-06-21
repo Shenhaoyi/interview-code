@@ -9,7 +9,7 @@ export default async function concurrentRequest(requests: AnyFn[], options: { co
   const { length } = requests;
   const results: Promise<any>[] = [];
   if (!length) return Promise.resolve([]);
-  // 一开始，发起前 Math.max(length, concurrentMax) 个请求
+  // 一开始，发起前 Math.min(length, concurrentMax) 个请求
   const concurrentCount = Math.min(length, concurrentMax);
   let index = 0; // 请求的下标
   let finishCount = 0; // 已完成请求数
