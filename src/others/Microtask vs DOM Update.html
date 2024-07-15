@@ -1,0 +1,33 @@
+<!--
+  测试微任务和渲染任务的执行顺序
+    修改 dom 后，渲染任务放在普通消息队列
+  结论：微任务队列中的任务优先
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Microtask vs DOM Update</title>
+  </head>
+  <body>
+    <div id="content">Initial content</div>
+    <script>
+      setTimeout(() => {
+        // 修改 DOM
+        document.getElementById('content').textContent = 'Updated content';
+
+        // 创建一个 Promise 微任务
+        Promise.resolve().then(() => {
+          console.log('Promise microtask executed');
+          // 阻塞循环，模拟延迟
+          const start = Date.now();
+          while (Date.now() - start < 5000) {
+            // 进行5秒的阻塞
+          }
+        });
+
+        // 同步日志
+        console.log('DOM updated');
+      }, 2000);
+    </script>
+  </body>
+</html>
