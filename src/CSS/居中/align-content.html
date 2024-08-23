@@ -1,0 +1,33 @@
+<!-- 仅垂直居中！ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        border: 1px solid red;
+        height: 100px;
+        width: 100px;
+
+        /* 原生垂直居中 */
+        align-content: center;
+      }
+
+      .child {
+        border: 1px solid blue;
+        width: 50px;
+
+        /* 文字居中 */
+        line-height: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="child">hello</div>
+    </div>
+  </body>
+</html>
